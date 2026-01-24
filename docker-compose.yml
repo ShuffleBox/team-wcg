@@ -1,17 +1,14 @@
 services:
   boinc:
-    image: ghcr.io/shufflebox/wcg-client:latest
+    image: ghcr.io/youruser/boinc-wcg-client:latest
     container_name: boinc
     restart: unless-stopped
-
-    # Persist BOINC data
     volumes:
-      - ./boinc_data:/var/lib/boinc
+      - boinc_data:/var/lib/boinc
+    environment:
+      - WCG_ACCOUNT_KEY=${WCG_ACCOUNT_KEY}
+    #cpus: 2.0
+    #mem_limit: 4g
 
-    # Optional: Resource controls
-    #cpus: 4.0
-    #mem_limit: 6g
-
-    # shutdown behavior
-    stop_grace_period: 5m
-
+volumes:
+  boinc_data:
