@@ -14,5 +14,8 @@ EXPOSE 31416 80 443
 
 WORKDIR /var/lib/boinc
 
-ENTRYPOINT ["/usr/bin/boinc", "--allow_remote_gui_rpc", "--attach_project"]
-CMD ["www.worldcommunitygrid.org", "1137891_95be76b624523c7db127418b0f9c0c39"]
+CMD ["if [ ! -f client_state.xml ]; then \
+        /usr/bin/boinc --allow_remote_gui_rpc --attach_project https://www.worldcommunitygrid.org \"$WCG_ACCOUNT_KEY\"; \
+      else \
+        /usr/bin/boinc --allow_remote_gui_rpc; \
+      fi"]
