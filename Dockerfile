@@ -9,13 +9,15 @@ RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/test
 
 User root
 
+WORKDIR /var/lib/boinc
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # BOINC RPC port
 EXPOSE 31416 80 443
 
-WORKDIR /var/lib/boinc
 
-CMD ["if [ ! -f client_state.xml ]; then \
-        /usr/bin/boinc --allow_remote_gui_rpc --attach_project https://www.worldcommunitygrid.org \"$WCG_ACCOUNT_KEY\"; \
-      else \
-        /usr/bin/boinc --allow_remote_gui_rpc; \
-      fi"]
+
+
+ENTRYPOINT ["/entrypoint.sh"]
