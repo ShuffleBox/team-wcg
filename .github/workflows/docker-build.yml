@@ -36,5 +36,5 @@ jobs:
           context: .
           push: true
           tags: |
-                ghcr.io/${{ env.OWNER_LOWER }}/team-unt--wcg:latest
-                ghcr.io/${{ env.OWNER_LOWER }}/team-unt-wcg:${{ github.ref_name }}
+                ghcr.io/${{ env.OWNER_LOWER }}/wcg-client:latest
+                ghcr.io/${{ env.OWNER_LOWER }}/wcg-client:${{ github.ref_name }}
