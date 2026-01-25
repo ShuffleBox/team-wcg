@@ -1,3 +1,4 @@
 # wcg-client
-World Community Grid client as a docker image.  It is baked with my WCG account id, so if you find any of this useful
-and wish to copy, you may want to clone the repo and update the secrets.
+World Community Grid client as a docker image with a docker-compose file.
+
+be sure to set up the .env file with your WCG Account Key. It's found on your Profile page towards the bottom.
