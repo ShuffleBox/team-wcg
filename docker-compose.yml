@@ -12,3 +12,6 @@ services:
     # Resource controls
     #cpus: 2.0
     #mem_limit: 4g
+    
+    # shutdown behavior
+    stop_grace_period: 5m
